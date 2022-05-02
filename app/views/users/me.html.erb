@@ -1,0 +1,21 @@
+<div class="container contact-container">
+<div class="container">
+    <div class="py-5 text-center">
+      <h2 class="pt-5">Your InstaPay Profile</h2>
+      <p class="lead">Instapay works on PayID - the universal payment identifier</p>
+    </div>
+
+    <div class="row justify-content-md-center">
+      <%= image_tag(current_user.avatar_url, class: "small-contact-image img-fluid rounded-circle") %>
+      </div>
+    <div class="row justify-content-md-center">
+
+      <h2 class="pt-1"><%= current_user.payid_full %> </h2>
+      </div>
+    <div class="row justify-content-md-center">
+    <h3>Balance </h3>
+
+    <h3>Transactions </h3>
+    </div>
+    </div>
+  </div>

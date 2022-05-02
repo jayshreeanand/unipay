@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, except: [:search]
 
   def search #qr scan
     if params['payid'].present?
@@ -8,5 +9,8 @@ class UsersController < ApplicationController
       c.save!
       redirect_to contacts_path(c)
     end
+  end
+
+  def me
   end
 end
