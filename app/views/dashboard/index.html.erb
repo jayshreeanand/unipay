@@ -68,7 +68,7 @@
    
     <div class="row justify-content-md-center">
       <%# <div class="col-md-6"> %>
-        <button class="btn btn-primary btn-lg btn-block btn-payment" type="submit">Make a Payment</button>
+        <button class="btn btn-primary btn-lg btn-block btn-payment" data-toggle="modal" data-target="#makePaymentModal">Make a Payment</button>
       <%# </div> %>
     </div>
      <h4>Contacts</h4>
@@ -138,3 +138,6 @@
     </div>
   </div>
 <% end %>
+
+<%= render 'payment' %>
+
