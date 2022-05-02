@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :contacts, dependent: :destroy
   has_many :transactions, dependent: :destroy
+  has_many :sent_requests, class_name: "Request", foreign_key: 'sender_id'
+  has_many :received_requests, class_name: "Request", foreign_key: 'recipient_id'
+
   
   before_save :add_gravatar
 

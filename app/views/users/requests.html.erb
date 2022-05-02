@@ -1,0 +1,54 @@
+<div class="container contact-container">
+<div class="container">
+    <div class="row justify-content-md-center pb-5">
+      <%= image_tag(current_user.avatar_url, class: "small-contact-image img-fluid rounded-circle") %>
+      </div>
+    <div class="row justify-content-md-center">
+
+      <h4 class="pt-1"><%= current_user.payid_full %> </h4>
+      </div>
+      <div class="row justify-content-md-center">
+      <p class="pt-1">XRP Address: <%= current_user.xrp_address %> </p>
+      </div>
+       <div class="row justify-content-md-center">
+
+      </div>
+    <div class="row justify-content-md-center">
+    <div class="col-md-9">
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+      <h6 class="border-bottom border-gray pb-2 mb-0">Pending Payments</h6>
+      <%- if !current_user.received_requests.present? %>
+        <p> No pending payments </p>
+        <% end %>
+        <%- current_user.received_requests.each do |request| %>
+
+        <div class="media text-muted pt-3">
+
+          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark"><%= request.sender.payid_full %></strong>
+            <%= "#{request.amount} $ at " %> %>
+            <%= request.created_at %>
+          </p>
+          </div>
+        <% end %>
+
+        <h6 class="border-bottom border-gray pb-2 mb-0 pt-5">Invoices Sent</h6>
+         <%- if !current_user.sent_requests.present? %>
+        <p> No invoices sent </p>
+        <% end %>
+        <%- current_user.sent_requests.each do |request| %>
+
+        <div class="media text-muted pt-3">
+
+          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark"><%= request.recipient.payid_full %></strong>
+            <%= "#{request.amount} $ at " %> %>
+            <%= request.created_at %>
+          </p>
+          </div>
+        <% end %>
+        </div>
+    </div>
+    </div>
+    </div>
+  </div>

@@ -13,5 +13,8 @@ class UsersController < ApplicationController
 
   def me
   end
+
+  def requests
+  end
   
 end
