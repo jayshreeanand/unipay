@@ -19,6 +19,7 @@ gem 'faraday_middleware'
 
 # Payments
 gem 'xpring'
+gem 'cryptocompare'
 
 # View
 gem 'rqrcode'
