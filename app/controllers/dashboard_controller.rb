@@ -3,8 +3,8 @@ class DashboardController < ApplicationController
   layout 'dashboard'
 
   def index
-    qr_code = current_user.qr_code_svg
-    @qr_code_svg = qr_code.as_svg(
+    @qr_code = current_user.qr_code_svg
+    @qr_code_svg = @qr_code.as_svg(
       offset: 0,
       color: '000',
       shape_rendering: 'crispEdges',
