@@ -11,4 +11,9 @@ class Contact < ApplicationRecord
   def avatar_url
     avatar || 'avatar.png'
   end
+
+  def exchange_rate
+    result = Cryptocompare::Price.find('USD', ['XRP','BTC', 'ETH'])
+    result['USD']
+  end
 end
