@@ -86,19 +86,8 @@
      <h4>Contacts</h4>
     <div class="row">
       <%- current_user.contacts.each do |contact| %>
-        <a href="<%=contact_path(contact) %>"><img src="" alt="" class="img-thumbnail avatar"></a>
-        <img src="" alt="" class="img-thumbnail avatar">
-        <img src="" alt="" class="img-thumbnail avatar">
-        <img src="" alt="" class="img-thumbnail avatar">
-        <img src="" alt="" class="img-thumbnail avatar">
-        <img src="" alt="" class="img-thumbnail avatar">
-        <img src="" alt="" class="img-thumbnail avatar">
-        <img src="" alt="" class="img-thumbnail avatar">
-        <img src="" alt="" class="img-thumbnail avatar">
-        <img src="" alt="" class="img-thumbnail avatar">
-        <img src="" alt="" class="img-thumbnail avatar">
-        <img src="" alt="" class="img-thumbnail avatar">
-        <% end %>
+        <a href="<%=contact_path(contact) %>"><%= image_tag(contact.avatar, class: 'img-thumbnail avatar') %></a>
+      <% end %>
     </div>
 
     <h4 class="py-5">Businesses</h4>
