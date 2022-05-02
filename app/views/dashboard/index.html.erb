@@ -52,16 +52,26 @@
               <div class="col-md-12">
                 <label for="cc-name">Wallet Address</label>
                 <%= text_field_tag(:xrp_address,'', class: 'form-control',  placeholder: 'Wallet Address', required: false ) %>
-                <small class="text-muted">Wallet Address</small>
+                <%# <small class="text-muted">Wallet Address</small> %>
                 <div class="invalid-feedback">
                  Wallet address is required
+                </div>
+              </div>
+            </div>
+            <div class="row py-3">
+              <div class="col-md-12">
+                <label for="cc-name">Seed</label>
+                <%= text_field_tag(:xrp_secret,'', class: 'form-control',  placeholder: 'Wallet Seed', required: false ) %>
+                <%# <small class="text-muted">Wallet Seed</small> %>
+                <div class="invalid-feedback">
+                 Wallet seed is required
                 </div>
               </div>
             </div>
             </div>
           <div class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input" id="same-address">
-            <label class="custom-control-label" for="same-address">Create a new XRP wallet</label>
+            <label class="custom-control-label" for="same-address">Create a test XRP wallet</label>
           </div>
         
           <hr class="mb-4">

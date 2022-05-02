@@ -18,13 +18,19 @@ class DashboardController < ApplicationController
     if params['username'].present?
       begin
         if params['xrp_address'].present?
+          current_user.xrp_address = params['xrp_address']
+          current_user.xrp_secret = params['xrp_seed']
           response = Instapay::Client.new.create_payid(params[:username], xrp_address: params['xrp_address'])
+
         else
-          response = Instapay::Client.new.create_payid(params[:username])
+          byebug
+          test_wallet = Payment::Client.new(current_user).test_wallets[1]
+          current_user.xrp_address = test_wallet[:address]
+          current_user.xrp_secret = test_wallet[:secret]
+          response = Instapay::Client.new.create_payid(params[:username], xrp_address: current_user.xrp_address)
         end
         current_user.payid = response[:payid].split('$')[0]
-        current_user.xrp_address = response[:xrp_address]
-        current_user.xrp_balance = 2000
+        current_user.xrp_balance = 1000
         current_user.save!
         redirect_to dashboard_path, notice: "Your PayID was successfully created!"
 
