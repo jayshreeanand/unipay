@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :transactions
   resources :contacts
   get 'dashboard', to: 'dashboard#index'
   post 'create_payid', to: 'dashboard#create_payid'

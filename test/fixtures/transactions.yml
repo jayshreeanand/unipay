@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: MyString
+  contact: MyString
+  from_value: MyString
+  from_currency: MyString
+  to_value: MyString
+  to_currency: MyString
+
+two:
+  user: MyString
+  contact: MyString
+  from_value: MyString
+  from_currency: MyString
+  to_value: MyString
+  to_currency: MyString

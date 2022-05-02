@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @transaction.user %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @transaction.contact %>
+</p>
+
+<p>
+  <strong>From value:</strong>
+  <%= @transaction.from_value %>
+</p>
+
+<p>
+  <strong>From currency:</strong>
+  <%= @transaction.from_currency %>
+</p>
+
+<p>
+  <strong>To value:</strong>
+  <%= @transaction.to_value %>
+</p>
+
+<p>
+  <strong>To currency:</strong>
+  <%= @transaction.to_currency %>
+</p>
+
+<%= link_to 'Edit', edit_transaction_path(@transaction) %> |
+<%= link_to 'Back', transactions_path %>
