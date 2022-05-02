@@ -1,4 +1,4 @@
-<%- if current_user.payid.present? %>
+<%- if !current_user.payid.present? %>
   <div class="container">
     <div class="py-5 text-center">
       <h2 class="pt-5">Get your PayID now</h2>
@@ -78,7 +78,7 @@
      <h4>Contacts</h4>
     <div class="row">
       <%- current_user.contacts.each do |contact| %>
-        <img src="" alt="" class="img-thumbnail avatar">
+        <a href="<%=contact_path(contact) %>"><img src="" alt="" class="img-thumbnail avatar"></a>
         <img src="" alt="" class="img-thumbnail avatar">
         <img src="" alt="" class="img-thumbnail avatar">
         <img src="" alt="" class="img-thumbnail avatar">
@@ -95,7 +95,6 @@
 
     <h4 class="py-5">Businesses</h4>
     <div class="row">
-      <%# <div class="col-md-6"> %>
         <img src="" alt="" class="img-thumbnail avatar">
         <img src="" alt="" class="img-thumbnail avatar">
         <img src="" alt="" class="img-thumbnail avatar">
@@ -112,9 +111,21 @@
         <img src="" alt="" class="img-thumbnail avatar"><img src="" alt="" class="img-thumbnail avatar">
         <img src="" alt="" class="img-thumbnail avatar">
         <img src="" alt="" class="img-thumbnail avatar">
-      <%# </div> %>
     </div>
 
+    <h4 class="py-5">Subscriptions</h4>
+    <div class="row">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+    </div>
     <h4 class="py-5">Charities</h4>
     <div class="row">
       <%# <div class="col-md-6"> %>
