@@ -1,32 +1,25 @@
-default: &default
+base: &base
   adapter: postgresql
   encoding: utf8
   username: postgres
   password:
   host: 127.0.0.1
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
-
-secured: &secured
-  username: <%= ENV['DB_USERNAME'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
-  host: <%= ENV['DB_HOST'] %>
-  port: <%= ENV['DB_PORT'] %>
+  pool: 5
 
 development:
-  <<: *default
+  <<: *base
   database: instapay_development
 
 test:
-  <<: *default
+  <<: *base
   database: instapay_test
 
 staging:
-  <<: *default
-  <<: *secured
-  database: instapay_staging
+  <<: *base
+  url: <%= ENV['DATABASE_URL'] %>
+  pool: <%= ENV['DB_POOL'] || ENV['MAX_THREADS'] || 5 %>
 
 production:
-  <<: *default
-  <<: *secured
-  database: instapay_production
+  <<: *base
+  url: <%= ENV['DATABASE_URL'] %>
+  pool: <%= ENV['DB_POOL'] || ENV['MAX_THREADS'] || 5 %>
