@@ -13,6 +13,9 @@ gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 
+# Authentication
+gem 'devise'
+
 # API
 gem 'faraday'
 gem 'faraday_middleware'
