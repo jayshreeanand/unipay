@@ -106,7 +106,7 @@
 
     <h4 class="py-5">Subscriptions</h4>
     <div class="row">
-      <%- Contact.where(kind: 3, user: current_user).each do |contact| %>
+      <%- Contact.where(kind: 3).each do |contact| %>
         <a href="<%=contact_path(contact) %>" data-toggle="tootltio" title="<%= contact.name %> "><%= image_tag(contact.avatar_url, class: 'img-thumbnail avatar') %></a>
       <% end %>
     </div>
