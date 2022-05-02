@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+
 images = [
   'https://randomuser.me/api/portraits/men/75.jpg',
 ]
@@ -27,22 +28,29 @@ names = ['Kingston',
 names.each do |name|
   c = Contact.new
   c.name = name
+  c.user = User.first
   c.avatar = "https://randomuser.me/api/portraits/men/#{rand(1..100)}.jpg"
   c.payid = name.downcase
   c.save!
+end
 
 names_new = [
-  'Lia'
-'Genesis'
-'Adison'
-'Piper'
-'Akira'
+  'Lia',
+'Genesis',
+'Adison',
+'Piper',
+'Akira',
 'Elsie'
 ]
 
 names_new.each do |name|
   c = Contact.new
   c.name = name
+  c.user = User.first
   c.avatar = "https://randomuser.me/api/portraits/women/#{rand(1..100)}.jpg"
+  c.type = 'user'
   c.payid = name.downcase
   c.save!
+end
+
+
