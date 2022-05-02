@@ -14,7 +14,7 @@ The payID server is hosted on Amazon EC2 server using docker images Insta Pay ap
 - Cryptoconvert API
 - QR code scanner / generator
 
-- PayID Server- http://52.66.251.109:8080/
+- PayID Server- http://insta-pay.me:8080/
 - Insta-Pay Application - https://www.insta-pay.me/
 
 - XSpring - Ruby implementation
