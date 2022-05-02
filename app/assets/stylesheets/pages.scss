@@ -57,11 +57,12 @@ header.masthead {
   overflow: hidden;
   padding-top: calc(7rem + 72px);
   padding-bottom: 7rem;
-  background: linear-gradient(0deg, #ff6a00 0%, #ee0979 100%);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: scroll;
+  // background: linear-gradient(0deg, #ff6a00 0%, #ee0979 100%);
+  // background-repeat: no-repeat;
+  // background-position: center center;
+  // background-attachment: scroll;
   background-size: cover;
+  background-image: asset-url("crypto.jpg");
 }
 
 header.masthead .masthead-content {
@@ -81,7 +82,8 @@ header.masthead .bg-circle {
   z-index: 0;
   position: absolute;
   border-radius: 100%;
-  background: linear-gradient(0deg, #ee0979 0%, #ff6a00 100%);
+  opacity: 80%;
+  background: linear-gradient(0deg, #171ac4 0%, #b42dd6 100%);
 }
 
 header.masthead .bg-circle-1 {
