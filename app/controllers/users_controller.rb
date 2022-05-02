@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   end
 
   def me
+    @xrp_balance = Payment::Client.new(current_user).balance || 2000
   end
   
 end

@@ -50,11 +50,11 @@
             </div>
             <div class="row py-3">
               <div class="col-md-12">
-                <label for="cc-name">Public Key</label>
-                <input type="text" class="form-control" id="cc-name" placeholder="" required>
-                <small class="text-muted">Your wallet public key</small>
+                <label for="cc-name">Wallet Address</label>
+                <%= text_field_tag(:xrp_address,'', class: 'form-control',  placeholder: 'Wallet Address', required: false ) %>
+                <small class="text-muted">Wallet Address</small>
                 <div class="invalid-feedback">
-                  Name on card is required
+                 Wallet address is required
                 </div>
               </div>
             </div>

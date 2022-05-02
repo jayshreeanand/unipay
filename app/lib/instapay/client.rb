@@ -7,7 +7,7 @@ module Instapay
     def initialize
     end
 
-    def create_payid(username, type: 'xrp')
+    def create_payid(username, xrp_address: 'rDk7FQvkQxQQNGTtfM2Fr66s7Nm3k87vdS', type: 'xrp')
       payid = "#{username}$#{PAYID_SERVER}"
       body = {
           "payId": payid,
@@ -16,13 +16,13 @@ module Instapay
               "paymentNetwork": "XRPL",
               "environment": "TESTNET",
               "details": {
-                  "address": "rDk7FQvkQxQQNGTtfM2Fr66s7Nm3k87vdS"
+                  "address": xrp_address
               }
             }
           ]
       }
       response = request(http_method: :post, port: 8081, endpoint: 'users', params: body.to_json )
-      payid
+      { payid: payid, xrp_address: xrp_address } 
     end
 
     def request_payid(username, type: 'xrp')

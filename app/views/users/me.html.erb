@@ -2,7 +2,6 @@
 <div class="container">
     <div class="py-5 text-center">
       <h2 class="pt-5">Your InstaPay Profile</h2>
-      <p class="lead">Instapay works on PayID - the universal payment identifier</p>
     </div>
 
     <div class="row justify-content-md-center">
@@ -10,28 +9,36 @@
       </div>
     <div class="row justify-content-md-center">
 
-      <h2 class="pt-1"><%= current_user.payid_full %> </h2>
+      <h4 class="pt-1"><%= current_user.payid_full %> </h4>
+      </div>
+      <div class="row justify-content-md-center">
+      <p class="pt-1">XRP Address: <%= current_user.xrp_address %> </p>
+      <p class="pt-1">Balance: <%= @xrp_balance %> XRP </p>
+
+
       </div>
     <div class="row justify-content-md-center">
     <div class="my-3 p-3 bg-white rounded shadow-sm">
-    <h6 class="border-bottom border-gray pb-2 mb-0">Recent Transactions</h6>
-      <%- current_user.transactions.each do |transaction| %>
+    <%- if current_user.transactions.present? %>
+      <h6 class="border-bottom border-gray pb-2 mb-0">Recent Transactions</h6>
+        <%- current_user.transactions.each do |transaction| %>
 
-      <div class="media text-muted pt-3">
-                <a href="<%=contact_path(transaction.contact) %>" data-toggle="tootltio" title="<%= transaction.contact.name %> "><%= image_tag(transaction.contact.avatar_url, class: 'img-thumbnail tiny-avatar') %></a>
+        <div class="media text-muted pt-3">
+                  <a href="<%=contact_path(transaction.contact) %>" data-toggle="tootltio" title="<%= transaction.contact.name %> "><%= image_tag(transaction.contact.avatar_url, class: 'img-thumbnail tiny-avatar') %></a>
 
-        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-          <strong class="d-block text-gray-dark"><%= transaction.contact.payid_full %></strong>
-          <%= "You sent #{transaction.from_value} #{transaction.from_currency} at exchange rate of" %>
-          <%= "#{transaction.to_value} #{transaction.to_currency} at " %>
-          <%= transaction.created_at %>
-        </p>
-        </div>
-      <% end %>
-    <small class="d-block text-right mt-3">
-      <a href="#">All updates</a>
-    </small>
-  </div>
+          <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <strong class="d-block text-gray-dark"><%= transaction.contact.payid_full %></strong>
+            <%= "You sent #{transaction.from_value} #{transaction.from_currency} at exchange rate of" %>
+            <%= "#{transaction.to_value} #{transaction.to_currency} at " %>
+            <%= transaction.created_at %>
+          </p>
+          </div>
+        <% end %>
+      <small class="d-block text-right mt-3">
+        <a href="#">All updates</a>
+      </small>
+    <%- end %>
+    </div>
     </div>
     </div>
   </div>
