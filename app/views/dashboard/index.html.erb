@@ -65,8 +65,16 @@
     </div>
 <%- else %>
   <div class="container contact-container">
-   
+
     <div class="row justify-content-md-center">
+      <%= image_tag("03.jpg", class: "small-contact-image img-fluid rounded-circle") %>
+      </div>
+    <div class="row justify-content-md-center">
+
+      <h2 class="pt-1"><%= current_user.payid_full %> </h2>
+      </div>
+    <div class="row justify-content-md-center">
+
       <div class="col-md-6">
         <button class="btn btn-primary btn-lg btn-block my-5" data-toggle="modal" data-target="#makePaymentModal">Make a Payment</button>
       </div>
