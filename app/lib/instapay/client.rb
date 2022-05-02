@@ -8,9 +8,9 @@ module Instapay
     end
 
     def create_payid(username, type: 'xrp')
-      
+      payid = "#{username}$#{PAYID_SERVER}"
       body = {
-          "payId": "#{username}$#{PAYID_SERVER}",
+          "payId": payid,
           "addresses": [
             {
               "paymentNetwork": "XRPL",
@@ -22,6 +22,7 @@ module Instapay
           ]
       }
       response = request(http_method: :post, port: 8081, endpoint: 'users', params: body.to_json )
+      payid
     end
 
     def request_payid(username, type: 'xrp')
