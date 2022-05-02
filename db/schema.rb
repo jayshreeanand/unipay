@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2020_08_02_135701) do
   enable_extension "plpgsql"
 
   create_table "contacts", force: :cascade do |t|
-    t.bigint "user_id_id"
+    t.bigint "user_id"
     t.string "name"
     t.text "description"
     t.string "payid"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2020_08_02_135701) do
     t.string "avatar"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id_id"], name: "index_contacts_on_user_id_id"
+    t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
