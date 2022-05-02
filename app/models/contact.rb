@@ -6,6 +6,7 @@ class Contact < ApplicationRecord
   # before_save :add_gravatar
   before_validation :add_name
 
+  has_many :transactions, depdendent: :destroy
 
 
   def payid_full

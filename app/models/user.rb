@@ -4,7 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :contacts, dependent: :destroy
-
+  has_many :transactions, dependent: :destroy
+  
   before_save :add_gravatar
 
   def payid_full
