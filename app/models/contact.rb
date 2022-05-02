@@ -7,4 +7,8 @@ class Contact < ApplicationRecord
   def payid_full
     "#{payid}$insta-pay.me"
   end
+
+  def avatar_url
+    avatar || 'avatar.png'
+  end
 end
