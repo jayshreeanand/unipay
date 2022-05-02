@@ -15,7 +15,7 @@ module Payment
       xrp_address = user.xrp_address
       balance = client.balance_of(xrp_address)
       if balance.nil?
-        balance = 1000
+        balance = 1000000000
       end
       balance/1_000_000
     end
