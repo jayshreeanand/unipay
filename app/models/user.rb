@@ -10,6 +10,6 @@ class User < ApplicationRecord
   end
 
   def qr_code_svg
-    qrcode = RQRCode::QRCode.new("https://insta-pay.me/user/payid/#{payid}")
+    qrcode = RQRCode::QRCode.new("https://insta-pay.me/search?payid=#{payid}")
   end
 end
