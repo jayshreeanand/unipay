@@ -97,6 +97,9 @@ GEM
     google-protobuf (3.12.4)
     googleapis-common-protos-types (1.0.5)
       google-protobuf (~> 3.11)
+    gravatar-ultimate (2.0.0)
+      activesupport (>= 2.3.14)
+      rack
     grpc (1.30.2)
       google-protobuf (~> 3.12)
       googleapis-common-protos-types (~> 1.0)
@@ -242,6 +245,7 @@ DEPENDENCIES
   faraday
   faraday_middleware
   foreman
+  gravatar-ultimate
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg
