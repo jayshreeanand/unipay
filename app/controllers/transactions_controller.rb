@@ -25,10 +25,17 @@ class TransactionsController < ApplicationController
   # POST /transactions.json
   def create
     @transaction = Transaction.new(transaction_params)
+    @transaction.user = current_user
+    contact = Contact.find_by_payid(params['transaction']['payid'].split('$')[0])
+    @transaction.contact = contact
+    @transaction.from_currency = 'USD'
+    @transaction.to_currency = 'XRP'
+    exchange_rate = Cryptocompare::Price.find('USD', 'XRP')
+    @transaction.to_value = exchange_rate['USD']['XRP']
 
     respond_to do |format|
       if @transaction.save
-        format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
+        format.html { redirect_to @transaction.contact, notice: 'Transaction was successfully created.' }
         format.json { render :show, status: :created, location: @transaction }
       else
         format.html { render :new }

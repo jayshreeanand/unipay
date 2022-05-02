@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(version: 2020_08_02_194509) do
   create_table "transactions", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "contact_id"
-    t.bigint "from_value"
+    t.string "from_value"
     t.string "from_currency"
-    t.bigint "to_value"
+    t.string "to_value"
     t.string "to_currency"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

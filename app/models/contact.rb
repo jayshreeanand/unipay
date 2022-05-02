@@ -6,8 +6,7 @@ class Contact < ApplicationRecord
   # before_save :add_gravatar
   before_validation :add_name
 
-  has_many :transactions, depdendent: :destroy
-
+  has_many :transactions, dependent: :destroy
 
   def payid_full
     "#{payid}$insta-pay.me"

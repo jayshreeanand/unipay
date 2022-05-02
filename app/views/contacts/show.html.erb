@@ -9,22 +9,25 @@
 
      <div class="row justify-content-md-center">
      <div class="col-md-6 col-sm-12">
+        <%= form_for Transaction.new, as: :transaction, url: transactions_path, method: :post do |f| %>
       <div class="form-story">
           <div class="modal-body">
             <div class="mb-6">
               <div class="label">PayID</div>
-            <input id="searchTextField" type="text" size="50" class="form-control" required="true" value="<%= @contact.payid_full %>">
+            <%= f.text_field :payid, class: "form-control", required: true, value: @contact.payid_full %>
+
             </div>
 
           
 
             <div class="mb-3 py-3 maps-autocomplete">
               <div class="label">Amount ($)</div>
-              <input id="searchTextField" type="text" size="50" class="form-control" required="true">
+            <%= f.text_field :from_value, class: "form-control", required: true %>
+              
             </div>
 
             <label for="wallet">Wallet Type</label>
-              <select class="custom-select d-block w-100" id="country" required>
+              <select class="custom-select d-block w-100" id="wallet" required>
                 <option value="">Choose...</option>
                 <option>XRP</option>
                 <option>BTC</option>
@@ -37,17 +40,29 @@
             <p>1 USD = <%= exchange_rate['XRP'].round(5) %> XRP</p>
             <p>1 USD = <%= exchange_rate['BTC'].round(4) %> BTC</p>
             <p>1 USD = <%= exchange_rate['ETH'].round(5) %> ETH</p>
-        <button class="btn btn-primary btn-lg btn-block btn-payment my-5" data-toggle="modal" data-target="#makePaymentModal">Make a Payment</button>
+        <button class="btn btn-primary btn-lg btn-block btn-payment my-5" type="submit">Make a Payment</button>
               
           </div>
           </div>
+          <% end %>
       
 
 
   <div class="my-3 p-3 bg-white rounded shadow-sm">
     <h6 class="border-bottom border-gray pb-2 mb-0">Recent Transactions</h6>
-    <div class="media text-muted pt-3">
-      <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+      <%- @contact.transactions.each do |transaction| %>
+
+      <div class="media text-muted pt-3">
+        <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+          <strong class="d-block text-gray-dark"><%= transaction.user.payid_full %></strong>
+          <%= "You sent #{transaction.from_value} #{transaction.from_currency} at exchange rate of" %>
+          <%= "#{transaction.to_value} #{transaction.to_currency} at " %>
+          <%= transaction.created_at %>
+        </p>
+        </div>
+      <% end %>
+      <%# <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
       <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
         <strong class="d-block text-gray-dark">@username</strong>
         Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
@@ -66,7 +81,7 @@
         <strong class="d-block text-gray-dark">@username</strong>
         Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
       </p>
-    </div>
+    </div> %>
     <small class="d-block text-right mt-3">
       <a href="#">All updates</a>
     </small>
