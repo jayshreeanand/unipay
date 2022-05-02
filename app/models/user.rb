@@ -13,6 +13,8 @@ class User < ApplicationRecord
   end
 
   def qr_code_svg
+    qrcode = RQRCode::QRCode.new("https://#{Rails.application.secrets.remote_host}/search?payid=#{payid}")
+
     qrcode = RQRCode::QRCode.new("https://www.insta-pay.me/search?payid=#{payid}")
   end
 

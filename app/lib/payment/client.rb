@@ -23,6 +23,10 @@ module Payment
     def send_money(amount, contact_user)
       wallet = Xpring::Wallet.from_seed(user.xrp_secret)
       amount = amount.to_i * 1000000
+      # new_balance = user.xrp_balance.to_i - amount.to_i
+      # user.xrp_balance = new_balance
+      # user.save!
+
       result = client.send_xrp(amount: amount, to: 'X7Y1ugDoD2qwFGhCYzk4nRGYuuwcaBxbhiCrNxzsw89Jgua', from: wallet)
     end
 
