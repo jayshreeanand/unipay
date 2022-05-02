@@ -1,2 +1,98 @@
 @import "bootstrap/scss/bootstrap";
 @import "pages";
+
+.bg-purple {
+  background-color: #7915b8;
+  color: #fff;
+}
+
+.btn-outline-purple {
+  color: #7915b8;
+  border-color: #7915b8;
+  border: 2px solid;
+}
+
+.btn-purple {
+  background-color: #7915b8;
+  color: white;
+}
+
+.btn-purple:hover {
+  background-color: #550d82;
+  color: white;
+}
+
+.btn-outline-purple:hover {
+  color: #fff;
+  background-color: #7915b8;
+}
+
+.avatar-tiny img {
+  width: 50px;
+}
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+  text-align: left;
+}
+.form-signin label {
+  margin-top: 15px;
+  color: #550d82;
+}
+
+.form-signin i {
+  font-size: 12px;
+  color: #95999a;
+}
+
+.form-signin-heading {
+  text-align: center;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+footer {
+  margin: 50px 0;
+}
+
+nav,
+input.nav-link {
+  font-size: 22px;
+}
+
+.navbar-brand {
+  font-weight: 400;
+  font-size: 22px;
+}
