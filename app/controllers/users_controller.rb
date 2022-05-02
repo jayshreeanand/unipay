@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:search]
-
+  layout 'dashboard'
   def search #qr scan
     if params['payid'].present?
       #search in existing contacts
