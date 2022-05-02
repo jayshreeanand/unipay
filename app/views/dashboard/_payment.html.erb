@@ -14,12 +14,12 @@
 
       </div>
       <div class="form-story">
-        <%= form_with(model: Contact.new, local: true, multipart: true) do |form| %>
+        <%= form_for Contact.new, as: :contact, url: contacts_path, method: :post do |f| %>
         <div class="modal-body">
       
           <div class="mb-6">
             <div class="label">Enter PayID</div>
-            <%= form.text_field :title, class: "form-control", required: true %>
+            <%= f.text_field :payid, class: "form-control", required: true %>
           </div>
 
          <br>
@@ -43,7 +43,7 @@
       </div>
       <div class="modal-footer">
         <div class="mb-6">
-          <button class="btn-pay btn btn-lg btn-primary">Proceed</button>
+          <button class="btn-pay btn btn-lg btn-primary" type="submit">Proceed</button>
         </div>
       </div>
       <% end %>
