@@ -7,7 +7,7 @@ codeReader
   .then((result) => {
     // process the result
     console.log(result.text);
-
     document.getElementById("result").textContent = result.text;
+    document.location.href = result.text;
   })
   .catch((err) => console.error(err));
