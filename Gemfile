@@ -26,7 +26,6 @@ gem 'cryptocompare'
 
 # View
 gem 'rqrcode'
-gem 'gravatar-ultimate'
 
 
 # Reduces boot times through caching; required in config/boot.rb
