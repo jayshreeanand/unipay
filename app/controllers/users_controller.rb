@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def search #qr scan
     if params['payid'].present?
       #search in existing contacts
-      c = current_user.contacts.where(payid: params['payid']).first_or_create
+      c = current_user.contacts.where(payid: params['payid'], kind: 'user').first_or_create
       c.name = params['payid'].capitalize
       c.save!
       redirect_to contacts_path(c)
@@ -13,4 +13,5 @@ class UsersController < ApplicationController
 
   def me
   end
+  
 end
