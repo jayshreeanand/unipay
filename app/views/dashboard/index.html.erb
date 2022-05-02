@@ -67,13 +67,17 @@
   <div class="container contact-container">
    
     <div class="row justify-content-md-center">
-      <%# <div class="col-md-6"> %>
-        <button class="btn btn-primary btn-lg btn-block btn-payment" data-toggle="modal" data-target="#makePaymentModal">Make a Payment</button>
-      <%# </div> %>
+      <div class="col-md-6">
+        <button class="btn btn-primary btn-lg btn-block my-5" data-toggle="modal" data-target="#makePaymentModal">Make a Payment</button>
+      </div>
+      <div class="col-md-6">
+        <button class="btn btn-primary btn-lg btn-block my-5" data-toggle="modal" data-target="#qrModal">Receive Payment</button>
+
+      </div>
     </div>
      <h4>Contacts</h4>
     <div class="row">
-      <%# <div class="col-md-6"> %>
+      <%- current_user.contacts.each do |contact| %>
         <img src="" alt="" class="img-thumbnail avatar">
         <img src="" alt="" class="img-thumbnail avatar">
         <img src="" alt="" class="img-thumbnail avatar">
@@ -85,12 +89,8 @@
         <img src="" alt="" class="img-thumbnail avatar">
         <img src="" alt="" class="img-thumbnail avatar">
         <img src="" alt="" class="img-thumbnail avatar">
-        <img src="" alt="" class="img-thumbnail avatar"><img src="" alt="" class="img-thumbnail avatar">
         <img src="" alt="" class="img-thumbnail avatar">
-        <img src="" alt="" class="img-thumbnail avatar"><img src="" alt="" class="img-thumbnail avatar">
-        <img src="" alt="" class="img-thumbnail avatar">
-        <img src="" alt="" class="img-thumbnail avatar">
-      <%# </div> %>
+        <% end %>
     </div>
 
     <h4 class="py-5">Businesses</h4>

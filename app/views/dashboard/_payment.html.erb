@@ -51,3 +51,27 @@
   </div>
 </div>
 
+
+
+
+<div class="modal fade" id="qrModal" tabindex="-1" role="dialog" aria-labelledby="qrModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="qrModalLabel">Make Payment to <%= current_user.payid_full %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+   
+      <div class="container">
+      <div><%= @qr_code_svg %></div>
+        <img src="<%= @qr_code_svg %>"
+        </div>
+
+         
+
+    </div>
+  </div>
+</div>
+

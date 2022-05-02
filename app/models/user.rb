@@ -4,4 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :contacts, dependent: :destroy
+
+  def payid_full
+    "#{payid}$insta-pay.me"
+  end
+
+  def qr_code_svg
+    qrcode = RQRCode::QRCode.new("http://google.com")
+  end
 end
