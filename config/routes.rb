@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'qr-scan', to: 'basic_qr_codes#index'
   get 'search', to: 'users#search'
   root to: 'dashboard#index'
+  get 'home', to: 'pages#home'
 
   get 'profile', to: 'users#me'
 end
