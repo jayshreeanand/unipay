@@ -1,24 +1,43 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The payID server is hosted on Amazon EC2 server using docker images Insta Pay application is built using Ruby on Rails and is hosted on heroku
 
-Things you may want to cover:
+# Tech Stack
 
-* Ruby version
+AWS EC2
+Docker
+Heroku
+Node.js
+Ruby on Rails
+PayID
+Xspring SDK -XRP Test ledger
+Cryptoconvert API
+QR code scanner / generator
 
-* System dependencies
+PayID Server- http://52.66.251.109:8080/
+Insta-Pay Application - https://www.insta-pay.me/
 
-* Configuration
+XSpring - Ruby implementation
+PayID API - custom wrapper written using Ruby
 
-* Database creation
+## Installation
 
-* Database initialization
+### First-Time Setup:
 
-* How to run the test suite
+1. Copy and modify the database.yml file: `cp config/database.yml.example config/database.yml`
+2. Copy and modify the .env file: `cp .env.example .env`
+3. Run `bundle install` to install all the gems
+4. Run `rake db:setup` to create and seed the database
+5. Run `foreman start` to run the server
+6. Add the following entry to your hosts file (`/etc/hosts`): `127.0.0.1 dev.instapay.com`
+7. Now access the app at 'http://dev.instapay.com:3000'.
 
-* Services (job queues, cache servers, search engines, etc.)
+### Additional instructions for Test-Driven Development:
 
-* Deployment instructions
+1. Run `rake db:test:load`
+2. Run `guard` in another terminal to re-run the tests as and when files are modified
 
-* ...
+### Handling updates:
+
+1. Run `bundle install`
+2. Run `rake db:migrate`
