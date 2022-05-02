@@ -17,4 +17,14 @@ class UsersController < ApplicationController
   def requests
   end
   
+  def invoice
+    if params[:request_id].present?
+      request = Request.find(params[:request_id])
+      sender = request.sender
+      contact = current_user.contacts.where(payid: sender.payid, kind: :user).first_or_create
+      contact.name = sender.payid.capitalize
+      contact.save!
+      redirect_to "/contacts/#{contact.id}"
+    end
+  end
 end

@@ -13,6 +13,18 @@ class DashboardController < ApplicationController
     )
   end
 
+  def create_request
+    if params['amount'].present?
+      r = Request.new
+      r.sender = current_user
+      r.amount = params[:amount]
+      recipient = User.where(payid: params[:recipient]).first
+      r.recipient = recipient
+      r.save!
+      redirect_to "/requests", notice: "Your request was successfully sent!"
+    end
+  end
+
   def create_payid
     username = params['username'] || current_user.email.split('@')[0] || "random#{rand(1000..9000)}"
     if params['username'].present?

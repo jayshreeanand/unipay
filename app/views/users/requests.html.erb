@@ -25,10 +25,11 @@
         <div class="media text-muted pt-3">
 
           <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-            <strong class="d-block text-gray-dark"><%= request.sender.payid_full %></strong>
-            <%= "#{request.amount} $ at " %> %>
+            <strong class="blue-text d-block text-gray-dark"><%= request.sender.payid_full %></strong>
+            <%= "#{request.amount} $ at " %>
             <%= request.created_at %>
           </p>
+          <a href="<%= "/invoice?request_id=#{request.id}" %>"><button  class="btn btn-md btn-primary">Pay</button></a>
           </div>
         <% end %>
 
@@ -41,8 +42,8 @@
         <div class="media text-muted pt-3">
 
           <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-            <strong class="d-block text-gray-dark"><%= request.recipient.payid_full %></strong>
-            <%= "#{request.amount} $ at " %> %>
+            <strong class="blue-text d-block text-gray-dark"><%= request.recipient.payid_full %></strong>
+            <%= "#{request.amount} $ at " %>
             <%= request.created_at %>
           </p>
           </div>

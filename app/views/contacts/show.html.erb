@@ -79,21 +79,19 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="invoiceModalLabel">Request payment from <%= current_user.payid_full %></h5>
+        <h5 class="modal-title" id="invoiceModalLabel">Request payment from <%= @contact.payid_full %></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
    
       <div class="container col-md-9  my-5  mx-5">
-      <%= form_for Transaction.new, as: :transaction, url: transactions_path, method: :post do |f| %>
-      <div class="mb-3 py-3 maps-autocomplete">
-              <div class="label">Amount ($)</div>
-            <%= f.text_field :from_value, class: "form-control", required: true %>
-            <%= f.hidden_field :contact, value: @contact %>
+      <%= form_with(url: create_request_path, method: :post)  do  %>
+              <%= text_field_tag(:amount,'', class: 'form-control',  placeholder: 'Amount', required: true ) %>
+            <%= hidden_field_tag :recipient,  @contact.payid %>
               
             <button class="btn btn-primary btn-lg btn-block btn-payment my-5" type="submit">Request</button>
-            <% end %>
+        <% end %>
     </div>
   </div>
 </div>
