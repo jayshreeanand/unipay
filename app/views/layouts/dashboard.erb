@@ -14,6 +14,15 @@
   </head>
 
   <body>
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+  <h5 class="my-0 mr-md-auto font-weight-normal">InstaPay</h5>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a class="p-2 text-dark" href="/profile">Transactions</a>
+    <a class="p-2 text-dark" href="/profile">Profile</a>
+  </nav>
+  <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "btn btn-outline-primary" %>
+</div>
+
   <div class="container py-5">
     <% if notice %>
       <div class="alert alert-success alert-dismissible fade show" role="alert">
