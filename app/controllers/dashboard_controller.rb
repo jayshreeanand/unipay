@@ -14,12 +14,12 @@ class DashboardController < ApplicationController
   end
 
   def create_payid
-    username = params[:username] || current_user.email.split('@')[0] || 'random'
-    # if params[:username].present?
+    username = params['username'] || current_user.email.split('@')[0] || "random#{rand(1000..9000)}"
+    if params['username'].present?
       begin
-        # response = Instapay::Client.new.create_payid(params[:username])
-        response = username
-        current_user.payid = response
+        response = Instapay::Client.new.create_payid(params[:username])
+        payid = response.split('$')[0]
+        current_user.payid = payid
         current_user.save!
         redirect_to dashboard_path, notice: "Your PayID was successfully created!"
 
@@ -27,8 +27,6 @@ class DashboardController < ApplicationController
         throw 'e' # show error message
       end
       
-    # end
+    end
   end
-
-
 end
