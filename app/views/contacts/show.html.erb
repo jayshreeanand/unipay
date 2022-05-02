@@ -45,8 +45,12 @@
           </div>
           </div>
           <% end %>
-      
-
+      <h5 class="">Raise a invoice</h5>
+      <div class="row justify-content-md-center">
+      <div class="col-md-11">
+        <button class="btn btn-primary btn-lg btn-block btn-payment my-5" data-toggle="modal" data-target="#invoiceModal">Request Payment</button>
+      </div>
+      </div>
 
   <div class="my-3 p-3 bg-white rounded shadow-sm">
     <h6 class="border-bottom border-gray pb-2 mb-0">Recent Transactions</h6>
@@ -69,4 +73,28 @@
   
 </div>
 </div>
+</div>
+
+
+<div class="modal fade" id="invoiceModal" tabindex="-1" role="dialog" aria-labelledby="invoiceModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="invoiceModalLabel">Request payment from <%= current_user.payid_full %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+   
+      <div class="container col-md-9  my-5  mx-5">
+      <%= form_for Transaction.new, as: :transaction, url: transactions_path, method: :post do |f| %>
+      <div class="mb-3 py-3 maps-autocomplete">
+              <div class="label">Amount ($)</div>
+            <%= f.text_field :from_value, class: "form-control", required: true %>
+            <%= f.hidden_field :contact, value: @contact %>
+              
+            <button class="btn btn-primary btn-lg btn-block btn-payment my-5" type="submit">Request</button>
+            <% end %>
+    </div>
+  </div>
 </div>

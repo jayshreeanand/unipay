@@ -24,6 +24,10 @@ class TransactionsController < ApplicationController
   # POST /transactions
   # POST /transactions.json
   def create
+    if params['transaction']['contact'].present?
+       redirect_to dashboard_path, notice: "You request for payment was successfully sent"
+       return
+    end
     @transaction = Transaction.new(transaction_params)
     @transaction.user = current_user
     contact = Contact.find_by_payid(params['transaction']['payid'].split('$')[0])
