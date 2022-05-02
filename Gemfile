@@ -20,6 +20,9 @@ gem 'faraday_middleware'
 # Payments
 gem 'xpring'
 
+# View
+gem 'rqrcode'
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
