@@ -96,3 +96,21 @@ input.nav-link {
   font-weight: 400;
   font-size: 22px;
 }
+
+.avatar {
+  vertical-align: middle;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: blue;
+  margin: 5px;
+}
+
+.contact-container {
+  .btn-payment {
+    width: 60%;
+    margin-bottom: 50px;
+  }
+  padding: 50px;
+  width: 70%;
+}

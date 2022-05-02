@@ -1,65 +1,140 @@
-<div class="container">
-  <div class="py-5 text-center">
-    <img class="d-block mx-auto mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-    <h2>Get your PayID now</h2>
-    <p class="lead">Create your universal payment ID</p>
-  </div>
+<%- if current_user.payid.present? %>
+  <div class="container">
+    <div class="py-5 text-center">
+      <h2 class="pt-5">Get your PayID now</h2>
+      <p class="lead">Create your universal payment ID</p>
+    </div>
 
-  <div class="row justify-content-md-center">
-    
+    <div class="row justify-content-md-center">
+      
 
-    <div class="col-md-6 col-sm-9">
-      <h4 class="mb-3">Pay ID</h4>
-        <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <h4 class="mb-3">Pay ID</h4>
+          <div class="row">
 
 
-          <div class="mb-3">
-            <%# <label for="username">Username</label> %>
-            <div class="input-group">
-              
-              <input type="text" class="form-control" id="username" placeholder="Username" required>
-              <div class="input-group-prepend">
-                <span class="input-group-text">$insta-pay.net</span>
-              </div>
-              <div class="invalid-feedback" style="width: 100%;">
-                Your username is required.
+            <div class="mb-3">
+              <%# <label for="username">Username</label> %>
+              <div class="input-group">
+                
+                <input type="text" class="form-control" id="username" placeholder="Username" required>
+                <div class="input-group-prepend">
+                  <span class="input-group-text">$insta-pay.net</span>
+                </div>
+                <div class="invalid-feedback" style="width: 100%;">
+                  Your username is required.
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="row pt-3">
-          <%# <div class="col-md-12"> %>
-            <label for="country">Type</label>
-            <select class="custom-select d-block w-100" id="country" required>
-              <option value="">Choose...</option>
-              <option>XRP</option>
-              <option>BTC</option>
-              <option>ETH</option>
-              <option>Credit/Debit Cards</option>
+          <div class="row pt-3">
+            <%# <div class="col-md-12"> %>
+              <label for="country">Type</label>
+              <select class="custom-select d-block w-100" id="country" required>
+                <option value="">Choose...</option>
+                <option>XRP</option>
+                <option>BTC</option>
+                <option>ETH</option>
+                <option>Credit/Debit Cards</option>
 
-            </select>
-            <div class="invalid-feedback">
-              Please select a valid country.
-          </div>
-          <div class="row py-3">
-            <div class="col-md-12">
-              <label for="cc-name">Public Key</label>
-              <input type="text" class="form-control" id="cc-name" placeholder="" required>
-              <small class="text-muted">Your wallet public key</small>
+              </select>
               <div class="invalid-feedback">
-                Name on card is required
+                Please select a valid country.
+            </div>
+            <div class="row py-3">
+              <div class="col-md-12">
+                <label for="cc-name">Public Key</label>
+                <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                <small class="text-muted">Your wallet public key</small>
+                <div class="invalid-feedback">
+                  Name on card is required
+                </div>
               </div>
             </div>
+            </div>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="same-address">
+            <label class="custom-control-label" for="same-address">Create a new XRP wallet</label>
           </div>
-          </div>
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="same-address">
-          <label class="custom-control-label" for="same-address">Create a new XRP wallet</label>
-        </div>
-       
-        <hr class="mb-4">
-        <button class="btn btn-primary btn-lg btn-block" type="submit">Create</button>
-      </form>
+        
+          <hr class="mb-4">
+          <button class="btn btn-primary btn-lg btn-block" type="submit">Create</button>
+        </form>
+      </div>
+    </div>
+<%- else %>
+  <div class="container contact-container">
+   
+    <div class="row justify-content-md-center">
+      <%# <div class="col-md-6"> %>
+        <button class="btn btn-primary btn-lg btn-block btn-payment" type="submit">Make a Payment</button>
+      <%# </div> %>
+    </div>
+     <h4>Contacts</h4>
+    <div class="row">
+      <%# <div class="col-md-6"> %>
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar"><img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar"><img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+      <%# </div> %>
+    </div>
+
+    <h4 class="py-5">Businesses</h4>
+    <div class="row">
+      <%# <div class="col-md-6"> %>
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar"><img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar"><img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+      <%# </div> %>
+    </div>
+
+    <h4 class="py-5">Charities</h4>
+    <div class="row">
+      <%# <div class="col-md-6"> %>
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar"><img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar"><img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+        <img src="" alt="" class="img-thumbnail avatar">
+      <%# </div> %>
     </div>
   </div>
+<% end %>
