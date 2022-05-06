@@ -35,8 +35,7 @@ class DashboardController < ApplicationController
           response = Instapay::Client.new.create_payid(params[:username], xrp_address: params['xrp_address'])
 
         else
-          byebug
-          test_wallet = Payment::Client.new(current_user).test_wallets[1]
+          test_wallet = Payment::Client.new(current_user).test_wallets[2]
           current_user.xrp_address = test_wallet[:address]
           current_user.xrp_secret = test_wallet[:secret]
           response = Instapay::Client.new.create_payid(params[:username], xrp_address: current_user.xrp_address)
