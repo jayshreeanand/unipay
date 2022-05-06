@@ -27,7 +27,7 @@ module Payment
       # user.xrp_balance = new_balance
       # user.save!
 
-      result = client.send_xrp(amount: amount, to: 'X7Y1ugDoD2qwFGhCYzk4nRGYuuwcaBxbhiCrNxzsw89Jgua', from: wallet)
+      # result = client.send_xrp(amount: amount, to: 'X7Y1ugDoD2qwFGhCYzk4nRGYuuwcaBxbhiCrNxzsw89Jgua', from: wallet)
     end
 
     def transaction_status(transaction_id)
@@ -46,6 +46,7 @@ module Payment
         { secret: 'sn7zVe3rSmQAs8AmhxxJSAp6tJ7vC', address: 'rJELpsNbVk2u1T5XmH56ZTQqNMCvQT3gYR'},
         { secret: 'snuDQxY99icXDCk3vYMRkaQrkPhL5', address: 'rpnan7esK6qnbTiwyz9A4DZBw5J1Afuppv'},
         { secret: 'spAmpmwTkXA3s15CX6QmKZ2iA7Hsr', address: 'rNqHZFL7cjkGGXabJGqCPD6QEyGQNc5E8y'},
+        { secret: 'shUPfoKXXSbSu2Mm36HP691Qr5jPJ', address: 'r9XmKm6LvfFRnYLnUJztvYieLUdnYziQKY'} #X7AMp6csqW7XuDpH1jk8jysYpdDAq518Q2MWBd2HusrjHqD
       ]
     end
   end
