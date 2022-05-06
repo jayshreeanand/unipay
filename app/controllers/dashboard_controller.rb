@@ -24,6 +24,7 @@ class DashboardController < ApplicationController
         end
         current_user.payid = response[:payid].split('$')[0]
         current_user.xrp_address = response[:xrp_address]
+        current_user.xrp_balance = 2000
         current_user.save!
         redirect_to dashboard_path, notice: "Your PayID was successfully created!"
 

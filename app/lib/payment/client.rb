@@ -5,7 +5,10 @@ module Payment
     attr_accessor :client
     attr_accessor :user
 
-
+    test_wallets = [
+      { secret: 'sn8gDcc93h6nwgy72io26ePigosQb', address: 'rGhoYjkvuSMmVvBfZ4LEkf633dJfWVxJkx'}
+    ]
+    
     def initialize(user)
       @user = user
       @client = Xpring::Client.new(BASE_URI)
@@ -27,3 +30,7 @@ module Payment
 end
 
 # rGhoYjkvuSMmVvBfZ4LEkf633dJfWVxJkx
+
+
+
+sample_test_wallets = ['rULaXLNRSLDjDAWon1nECBYEmq9TReAZdA', 'rhxvJpW99nYbKnPJgmDr16XEELNbCJqfVG', 'r3FEaVBZyAjwjPt4W3VJKCVneK5W23Aw7i', 'rPmZ1xmCSGG5zkWkNwTRL4eodnrzF99STd']
