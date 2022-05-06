@@ -79,6 +79,11 @@ GEM
     cryptocompare (0.14.0)
       faraday
       json
+    delayed_job (4.1.8)
+      activesupport (>= 3.0, < 6.1)
+    delayed_job_active_record (4.1.4)
+      activerecord (>= 3.0, < 6.1)
+      delayed_job (>= 3.0, < 5)
     devise (4.7.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -238,6 +243,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   cryptocompare
+  delayed_job_active_record
   devise
   faraday
   faraday_middleware
