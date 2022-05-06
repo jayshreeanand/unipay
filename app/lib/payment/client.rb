@@ -27,7 +27,7 @@ module Payment
       # user.xrp_balance = new_balance
       # user.save!
 
-      # result = client.send_xrp(amount: amount, to: 'X7Y1ugDoD2qwFGhCYzk4nRGYuuwcaBxbhiCrNxzsw89Jgua', from: wallet)
+      result = client.send_xrp(amount: amount, to: 'X7Y1ugDoD2qwFGhCYzk4nRGYuuwcaBxbhiCrNxzsw89Jgua', from: wallet)
     end
 
     def transaction_status(transaction_id)

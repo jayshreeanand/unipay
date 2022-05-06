@@ -7,12 +7,20 @@ class Transaction < ApplicationRecord
   validates :from_currency, presence: true
   validates :to_currency, presence: true
 
-  before_save :make_payment
+  after_save :make_payment
+  # after_save :sync_to_xrp
 
   def make_payment
     contact_user = User.where(payid: contact.payid).first
 
     send_value = from_value.to_f * to_value.to_f
-    result = Payment::Client.new(user).send_money(send_value, contact_user)
+    self.delay.send_money_transaction(user, send_value, contact_user)
+  end
+
+ 
+
+  def send_money_transaction(user, send_value, contact_user)
+    Payment::Client.new(user).delay.send_money(send_value, contact_user)
+    Payment::Client.new(user).delay.send_money(send_value, contact_user)
   end
 end
