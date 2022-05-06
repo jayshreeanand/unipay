@@ -35,15 +35,17 @@ module Payment
     end
 
     def test_wallets
+      
+      test_wallets_new = [
+        { secret: 'ssvkzfbdUmmtEpGLvFginoAmVKQ2W', classic_address: 'rpdicQ6YQYZpNgTxUB9QEM4Me2MAmy38gV', address: 'X7Y1ugDoD2qwFGhCYzk4nRGYuuwcaBxbhiCrNxzsw89Jgua'}
+      ]
+
       test_wallets = [
         { secret: 'sn8gDcc93h6nwgy72io26ePigosQb', address: 'rGhoYjkvuSMmVvBfZ4LEkf633dJfWVxJkx'},
         { secret: 'shveCYhNusbJcLq5VSEkpVujXi2Zy', address: 'rfrURSS58bCXNa3MFkMLuFzcE3dCKqefmg'},
         { secret: 'sn7zVe3rSmQAs8AmhxxJSAp6tJ7vC', address: 'rJELpsNbVk2u1T5XmH56ZTQqNMCvQT3gYR'},
         { secret: 'snuDQxY99icXDCk3vYMRkaQrkPhL5', address: 'rpnan7esK6qnbTiwyz9A4DZBw5J1Afuppv'},
         { secret: 'spAmpmwTkXA3s15CX6QmKZ2iA7Hsr', address: 'rNqHZFL7cjkGGXabJGqCPD6QEyGQNc5E8y'},
-      ]
-      test_wallets_new = [
-        { secret: 'ssvkzfbdUmmtEpGLvFginoAmVKQ2W', classic_address: 'rpdicQ6YQYZpNgTxUB9QEM4Me2MAmy38gV', address: 'X7Y1ugDoD2qwFGhCYzk4nRGYuuwcaBxbhiCrNxzsw89Jgua'}
       ]
     end
   end
