@@ -38,9 +38,13 @@ class TransactionsController < ApplicationController
     exchange_rate = Cryptocompare::Price.find('USD', 'XRP')
     @transaction.to_value = exchange_rate['USD']['XRP']
 
+    client = Rapyd::Client.new
+    @checkout_id = client.create_checkout_page(@transaction.to_value, @transaction.to_currency)
     respond_to do |format|
       if @transaction.save
-        format.html { redirect_to @transaction.contact, notice: 'Transaction was successfully created.' }
+        # flash[:checkout_id] = @checkout_id 
+        format.html { redirect_to @transaction.contact, flash: { checkout_id: @checkout_id } }
+        # format.html { render partial: 'checkout_modal' }
         format.json { render :show, status: :created, location: @transaction }
       else
         format.html { render :new }

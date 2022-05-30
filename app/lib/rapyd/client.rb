@@ -9,7 +9,7 @@ module Rapyd
 
     def create_checkout_page(amount, currency)
       body = {
-        "amount": 100,
+        "amount": amount,
         "complete_payment_url": "http://example.com/complete",
         "country": "SG",
         "currency": "SGD",

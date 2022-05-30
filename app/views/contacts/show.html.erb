@@ -1,9 +1,10 @@
+
    <script>
         window.onload = function () {
             let checkout = new RapydCheckoutToolkit({
                 pay_button_text: "Click to pay",
                 pay_button_color: "blue",
-                id: "checkout_52998a288c4d7d20784839d253b4d520"
+                id: "<%= flash[:checkout_id] %>",
             });
             checkout.displayCheckout();
         }
@@ -13,10 +14,11 @@
         window.addEventListener('onCheckoutFailure', function (event) {
             console.log(event.detail.error)
         });
-      
+
+    
     </script>
-  
-  <div class="modal fade" id="makeCheckoutModal" tabindex="-1" role="dialog" aria-labelledby="makeCheckoutModalLabel" aria-hidden="true">
+<%#   
+  <div class="modal fade show" id="makeCheckoutModal" tabindex="-1" role="dialog" aria-labelledby="makeCheckoutModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -27,12 +29,13 @@
       </div>
    
       
-      <div class="container">
-        <div style="width: 500px" id="rapyd-checkout"></div>
-      </div>
+      
     </div>
   </div>
-</div>
+</div> %>
+<div class="container">
+        <div style="width: 500px" id="rapyd-checkout"></div>
+      </div>
 
 
   <div class="container">
@@ -63,10 +66,10 @@
             </div>
 
            
-          <div class="col-md-6">
-        <button class="btn btn-primary btn-lg btn-block my-5" data-toggle="modal" data-target="#makeCheckoutModal">Make a Payment</button>
+          <div class="col-md-12">
+        <button class="btn btn-primary btn-lg btn-block btn-payment my-5" >Make a Payment</button>
       </div>
-        <button class="btn btn-primary btn-lg btn-block btn-payment my-5" type="submit">Make a Payment</button>
+        <%# <button class="btn btn-primary btn-lg btn-block btn-payment my-5" type="submit">Make a Payment</button> %>
               
           </div>
           </div>
