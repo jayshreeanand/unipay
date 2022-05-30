@@ -1,5 +1,5 @@
 
-module Instapay
+module Unipay
   class Client
     BASE_URI = "#{Rails.application.secrets.payid_api_base_url}"
     PAYID_SERVER = "insta-pay.me"
