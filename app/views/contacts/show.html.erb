@@ -1,3 +1,40 @@
+   <script>
+        window.onload = function () {
+            let checkout = new RapydCheckoutToolkit({
+                pay_button_text: "Click to pay",
+                pay_button_color: "blue",
+                id: "checkout_52998a288c4d7d20784839d253b4d520"
+            });
+            checkout.displayCheckout();
+        }
+        window.addEventListener('onCheckoutPaymentSuccess', function (event) {
+            console.log(event.detail)
+        });
+        window.addEventListener('onCheckoutFailure', function (event) {
+            console.log(event.detail.error)
+        });
+      
+    </script>
+  
+  <div class="modal fade" id="makeCheckoutModal" tabindex="-1" role="dialog" aria-labelledby="makeCheckoutModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="makeCheckoutModalLabel">Make Payment</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+   
+      
+      <div class="container">
+        <div style="width: 500px" id="rapyd-checkout"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
   <div class="container">
 
     <div class="py-5 text-center">
@@ -25,16 +62,10 @@
               
             </div>
 
-            <label for="wallet">Wallet Type</label>
-              <select class="custom-select d-block w-100" id="wallet" required>
-                <option value="">Choose...</option>
-                <option>XRP</option>
-                <option>BTC</option>
-                <option>ETH</option>
-                <option>Credit/Debit Cards</option>
-
-              </select>
-          
+           
+          <div class="col-md-6">
+        <button class="btn btn-primary btn-lg btn-block my-5" data-toggle="modal" data-target="#makeCheckoutModal">Make a Payment</button>
+      </div>
         <button class="btn btn-primary btn-lg btn-block btn-payment my-5" type="submit">Make a Payment</button>
               
           </div>

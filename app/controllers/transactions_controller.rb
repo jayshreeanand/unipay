@@ -21,6 +21,7 @@ class TransactionsController < ApplicationController
   def edit
   end
 
+
   # POST /transactions
   # POST /transactions.json
   def create
@@ -30,7 +31,7 @@ class TransactionsController < ApplicationController
     end
     @transaction = Transaction.new(transaction_params)
     @transaction.user = current_user
-    contact = Contact.find_by_payid(params['transaction']['payid'].split('$')[0])
+    contact = Contact.find_by_payid(params['transaction']['payid'].split('@')[0])
     @transaction.contact = contact
     @transaction.from_currency = 'USD'
     @transaction.to_currency = 'XRP'
