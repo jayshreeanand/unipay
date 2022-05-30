@@ -11,9 +11,27 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://sandboxcheckouttoolkit.rapyd.net"></script>
+    <script>
+        window.onload = function () {
+            let checkout = new RapydCheckoutToolkit({
+                pay_button_text: "Click to pay",
+                pay_button_color: "blue",
+                id: "checkout_9ebe58dcb9d75e8f972a35350f96c2fa"
+            });
+            checkout.displayCheckout();
+        }
+        window.addEventListener('onCheckoutPaymentSuccess', function (event) {
+            console.log(event.detail)
+        });
+        window.addEventListener('onCheckoutFailure', function (event) {
+            console.log(event.detail.error)
+        });
+    </script>
   </head>
 
   <body>
+  <div style="width: 500px" id="rapyd-checkout"></div>
   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
   <a class="navbar-brand" href="/home"><%= image_tag('logo-dark.svg', class: 'logo') %></a>
   <div class="my-0 mr-md-auto font-weight-normal"></div>
