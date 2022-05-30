@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :transactions
   resources :contacts
-  get 'dashboard', to: 'dashboard#index'
+  get 'dashboard', to: 'dashboard#index', as: :user_root
   
   post 'create_payid', to: 'dashboard#create_payid'
   post 'create_request', to: 'dashboard#create_request'
@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   get 'home', to: 'pages#home'
 
   get 'profile', to: 'users#me'
+
 end
