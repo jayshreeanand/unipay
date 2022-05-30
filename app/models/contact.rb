@@ -9,7 +9,7 @@ class Contact < ApplicationRecord
   has_many :transactions, dependent: :destroy
 
   def payid_full
-    "#{payid}$insta-pay.me"
+    "#{payid}@unipay"
   end
 
   def avatar_url

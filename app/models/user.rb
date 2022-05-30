@@ -12,7 +12,7 @@ class User < ApplicationRecord
   before_save :add_gravatar
 
   def payid_full
-    "#{payid}$insta-pay.me"
+    "#{payid}@unipay"
   end
 
   def qr_code_svg

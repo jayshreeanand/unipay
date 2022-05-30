@@ -25,7 +25,7 @@ class ContactsController < ApplicationController
   # POST /contacts
   # POST /contacts.json
   def create
-    payid = contact_params[:payid].split('$')[0]
+    payid = contact_params[:payid].split('@')[0]
     name = payid
     @contact = Contact.new(payid:  payid, name: name)
     @contact.user = current_user

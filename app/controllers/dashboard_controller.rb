@@ -40,7 +40,7 @@ class DashboardController < ApplicationController
           current_user.xrp_secret = test_wallet[:secret]
           response = Unipay::Client.new.create_payid(params[:username], xrp_address: current_user.xrp_address)
         end
-        current_user.payid = response[:payid].split('$')[0]
+        current_user.payid = response[:payid].split('@')[0]
         current_user.xrp_balance = 1000
         current_user.save!
         redirect_to dashboard_path, notice: "Your PayID was successfully created!"
