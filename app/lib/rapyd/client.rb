@@ -11,8 +11,8 @@ module Rapyd
       body = {
         "amount": amount,
         "complete_payment_url": "http://example.com/complete",
-        "country": "SG",
-        "currency": "SGD",
+        "country": "us",
+        "currency": "USD",
         "error_payment_url": "http://example.com/error",
         "merchant_reference_id": "0912-2021",
         "language": "en",
@@ -20,7 +20,7 @@ module Rapyd
             "merchant_defined": true
         },
         "payment_method_types_include": [
-            "sg_grabpay_ewallet"
+           "us_mastercard_card", "us_visa_card", "us_ach_bank"
         ]
     }
       response = request(http_method: :post, endpoint: 'v1/checkout', params: body.to_json, rel_path: "post/v1/checkout" )

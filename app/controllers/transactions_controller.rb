@@ -39,7 +39,7 @@ class TransactionsController < ApplicationController
     @transaction.to_value = exchange_rate['USD']['XRP']
 
     client = Rapyd::Client.new
-    @checkout_id = client.create_checkout_page(@transaction.to_value, @transaction.to_currency)
+    @checkout_id = client.create_checkout_page(@transaction.from_value, @transaction.to_currency)
     respond_to do |format|
       if @transaction.save
         # flash[:checkout_id] = @checkout_id 
