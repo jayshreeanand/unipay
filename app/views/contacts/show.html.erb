@@ -34,11 +34,7 @@
                 <option>Credit/Debit Cards</option>
 
               </select>
-            <h5 class="pt-5">Exchange Rates</h5>
-            <%- exchange_rate = @contact.exchange_rate %>
-            <p>1 USD = <%= exchange_rate['XRP'].round(5) %> XRP</p>
-            <p>1 USD = <%= exchange_rate['BTC'].round(4) %> BTC</p>
-            <p>1 USD = <%= exchange_rate['ETH'].round(5) %> ETH</p>
+          
         <button class="btn btn-primary btn-lg btn-block btn-payment my-5" type="submit">Make a Payment</button>
               
           </div>
@@ -59,9 +55,7 @@
         <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
         <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
           <strong class="d-block text-gray-dark"><%= transaction.user.payid_full %></strong>
-          <%= "You sent #{transaction.from_value} #{transaction.from_currency} at exchange rate of" %>
-          <%= "#{transaction.to_value} #{transaction.to_currency} at " %>
-          <%= transaction.created_at %>
+          <%= "You sent #{transaction.from_value} #{transaction.from_currency} #{time_ago_in_words(transaction.created_at)} ago" %>
         </p>
         </div>
       <% end %>

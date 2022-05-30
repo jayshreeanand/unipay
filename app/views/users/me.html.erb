@@ -26,9 +26,7 @@
 
           <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
             <strong class="d-block text-gray-dark"><%= transaction.contact.payid_full %></strong>
-            <%= "You sent #{transaction.from_value} #{transaction.from_currency} at exchange rate of" %>
-            <%= "#{transaction.to_value} #{transaction.to_currency} at " %>
-            <%= transaction.created_at %>
+          <%= "You sent #{transaction.from_value} #{transaction.from_currency} #{time_ago_in_words(transaction.created_at)} ago" %>
           </p>
           </div>
         <% end %>
